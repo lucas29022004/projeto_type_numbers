@@ -1,0 +1,1 @@
+options_our_convert = ["octal", "hexadecimal", "binary", "decimal"]
