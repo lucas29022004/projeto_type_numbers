@@ -59,13 +59,19 @@ while True:
       if continuar == "n":
         break
     elif tipo2 == 3:
-      numero = int(input("\nDigite o Numero Decimal: "))
-      #converte decimal para hexadecimal e caso o valor for 1010 aparece AA
-      while numero > 0:
-        resto.append(caracteres_hex[(numero % 16)])
-        n = numero // 16
-      for i in range(len(resto)-1,-1,-1):
-        print(resto[i],end="")
+      decimal_number = int(input("Digite um número decimal: "))
+      hex_map = {10: 'A', 11: 'B', 12: 'C', 13: 'D', 14: 'E', 15: 'F'}
+
+      hexadecimal = ""
+      while decimal_number > 0:
+          remainder = decimal_number % 16
+          if remainder < 10:
+              hexadecimal = str(remainder) + hexadecimal
+          else:
+              hexadecimal = hex_map[remainder] + hexadecimal
+          decimal_number //= 16
+
+      print("O número hexadecimal correspondente é:", hexadecimal)
       
       continuar = input("Deseja Continuar (s/n): ")
       if continuar == "n":
